@@ -2,24 +2,24 @@
   "hints": [],
   "groups": [
     {
-      "sourceType": "com.mongode.girl.GirlProperties",
+      "sourceType": "com.mongode.girl.properties.GirlProperties",
       "name": "girl",
-      "type": "com.mongode.girl.GirlProperties"
+      "type": "com.mongode.girl.properties.GirlProperties"
     }
   ],
   "properties": [
     {
-      "sourceType": "com.mongode.girl.GirlProperties",
+      "sourceType": "com.mongode.girl.properties.GirlProperties",
       "name": "girl.age",
       "type": "java.lang.Integer"
     },
     {
-      "sourceType": "com.mongode.girl.GirlProperties",
+      "sourceType": "com.mongode.girl.properties.GirlProperties",
       "name": "girl.cup-size",
       "type": "java.lang.String"
     },
     {
-      "sourceType": "com.mongode.girl.GirlProperties",
+      "sourceType": "com.mongode.girl.properties.GirlProperties",
       "name": "girl.id",
       "type": "java.lang.Integer"
     }

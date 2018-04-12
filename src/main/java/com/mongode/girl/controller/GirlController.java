@@ -29,17 +29,14 @@ public class GirlController {
     
     /**
      * 添加一个Girl
-     *
-     * @param cupSize
-     * @param age
+     * @param girls
      * @return
      */
     @PostMapping(value = "/girls")
-    public Girl girlAdd(@RequestParam("cupSize") String cupSize,
-                        @RequestParam("age") Integer age) {
+    public Girl girlAdd(Girl girls) {
         Girl girl = new Girl();
-        girl.setCupSize(cupSize);
-        girl.setAge(age);
+        girl.setCupSize(girls.getCupSize());
+        girl.setAge(girls.getAge());
         
         return girlRepository.save(girl);
     }
@@ -57,20 +54,16 @@ public class GirlController {
     
     /**
      * 根据id更新Girl的信息
-     *
      * @param id
-     * @param cupSize
-     * @param age
+     * @param girls
      * @return
      */
     @PutMapping(value = "/girls/{id}")
-    public Girl girlUpdate(@PathVariable("id") Integer id,
-                           @RequestParam("cupSize") String cupSize,
-                           @RequestParam("age") Integer age) {
+    public Girl girlUpdate(@PathVariable("id") Integer id, Girl girls) {
         Girl girl = new Girl();
         girl.setId(id);
-        girl.setAge(age);
-        girl.setCupSize(cupSize);
+        girl.setAge(girls.getAge());
+        girl.setCupSize(girls.getCupSize());
         
         return girlRepository.save(girl);
     }
