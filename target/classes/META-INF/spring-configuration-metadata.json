@@ -1,0 +1,27 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.mongode.girl.GirlProperties",
+      "name": "girl",
+      "type": "com.mongode.girl.GirlProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.mongode.girl.GirlProperties",
+      "name": "girl.age",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.mongode.girl.GirlProperties",
+      "name": "girl.cup-size",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.mongode.girl.GirlProperties",
+      "name": "girl.id",
+      "type": "java.lang.Integer"
+    }
+  ]
+}

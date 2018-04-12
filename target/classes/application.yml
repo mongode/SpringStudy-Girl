@@ -1,0 +1,16 @@
+server:
+  port: 666
+spring:
+#  profiles:
+#    active: pro
+  dataSource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/msdb?autoReconnect=true&useSSL=false
+    username: root
+    password: 9o0p-[=]
+  jpa:
+    hibernate:
+#      update:只建不删;create:先删后建;create-drop:停后就删;none:不做操作;validate:验证类和表是否一致,不同会报错;
+      ddl-auto: update
+    show-sql: true
+
