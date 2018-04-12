@@ -1,0 +1,7 @@
+server:
+  port: 666
+#  servlet:
+#    context-path: /girl
+girl:
+  cupSize: F
+  age: 16
