@@ -1,16 +1,24 @@
 package com.mongode.girl.controller;
 
 import com.mongode.girl.domain.Girl;
+import com.mongode.girl.domain.Result;
 import com.mongode.girl.repository.GirlRepository;
 import com.mongode.girl.service.GirlService;
+import com.mongode.girl.utils.ResultUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 public class GirlController {
+    
+    private final static Logger logger = LoggerFactory.getLogger(GirlController.class);
     
     @Autowired
     private GirlRepository girlRepository;
@@ -24,26 +32,30 @@ public class GirlController {
      * */
     @GetMapping(value = "/girls")
     public List<Girl> girlList() {
+        logger.info("girlList");
         return girlRepository.findAll();
     }
     
     /**
      * 添加一个Girl
-     * @param girls
+     * @param girl
      * @return
      */
     @PostMapping(value = "/girls")
-    public Girl girlAdd(Girl girls) {
-        Girl girl = new Girl();
-        girl.setCupSize(girls.getCupSize());
-        girl.setAge(girls.getAge());
-        
-        return girlRepository.save(girl);
+    public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult) {
+        Result result = new Result();
+        if (bindingResult.hasErrors()) {
+            return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
+        }
+    
+        girl.setCupSize(girl.getCupSize());
+        girl.setAge(girl.getAge());
+    
+        return ResultUtil.success(girlRepository.save(girl));
     }
     
     /**
      * 根据id查询Girl的信息
-     *
      * @param id
      * @return
      */
@@ -70,7 +82,6 @@ public class GirlController {
     
     /**
      * 根据id删除Girl的信息
-     *
      * @param id
      */
     @DeleteMapping(value = "/girls/{id}")
@@ -78,10 +89,8 @@ public class GirlController {
         girlRepository.deleteById(id);
     }
     
-    
     /**
      * 根据age查询Girl列表
-     *
      * @param age
      * @return
      */
@@ -93,6 +102,11 @@ public class GirlController {
     @PostMapping(value = "/girls/two")
     public void girlTwo() {
         girlService.insertTwo();
+    }
+    
+    @GetMapping(value = "/girls/getAge/{id}")
+    public void getAge(@PathVariable("id") Integer id) throws Exception {
+        girlService.getAge(id);
     }
     
 }

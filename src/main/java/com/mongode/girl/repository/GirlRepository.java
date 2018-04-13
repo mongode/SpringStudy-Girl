@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface GirlRepository extends JpaRepository<Girl, Integer> {
     
-    /*通过年龄查询Girl列表*/
+    /* 通过年龄查询Girl列表 */
     List<Girl> findByAge(Integer age);
 }
