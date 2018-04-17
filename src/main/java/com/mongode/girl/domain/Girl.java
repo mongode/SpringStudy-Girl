@@ -62,6 +62,7 @@ public class Girl {
                 "id=" + id +
                 ", cupSize='" + cupSize + '\'' +
                 ", age=" + age +
+                ", money=" + money +
                 '}';
     }
 }

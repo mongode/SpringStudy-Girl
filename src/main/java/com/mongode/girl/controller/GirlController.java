@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class GirlController {
@@ -60,8 +59,8 @@ public class GirlController {
      * @return
      */
     @GetMapping(value = "/girls/{id}")
-    public Optional<Girl> girlFindOne(@PathVariable("id") Integer id) {
-        return girlRepository.findById(id);
+    public Girl girlFindOne(@PathVariable("id") Integer id) {
+        return girlRepository.findById(id).get();
     }
     
     /**
